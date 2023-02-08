@@ -1,0 +1,13 @@
+    <p>*********** Your Results ***********</P>
+    <p><%= @start %></p>
+    <p><%= @end %></p>
+    <p>Your word: <%= @word %></p>
+    <p>Time taken: <%= @time %>s</p>
+    <p><% if !@result %>
+     Sorry but <strong> <%= @word %> </strong> does not seem to be a valid English word.
+    <% elsif @word_array.all? { |letter| @letters.include?(letter) } %>
+      Congratulations! <strong> <%= @word %> </strong> is a valid English word.
+    <% else %>
+      <strong> <%= @word %> </strong> cannot be built out of <%= @letters_join %>
+    <% end %></p>
+<%= link_to "New Game", new_path %>
